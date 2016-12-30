@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var namae: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segueからResultViewControllerを取得する
+        let resultViewController:ResultViewController = segue.destination as! ResultViewController
+        
+        // 名前を代入
+        resultViewController.namae = namae.text!
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        
+    }
 }
 
